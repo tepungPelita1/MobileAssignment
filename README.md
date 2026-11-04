@@ -11,10 +11,27 @@ A Flutter mobile application that estimates the **excess baggage fee** for air t
 |---|---|
 | **Inputs** | Baggage weight (kg) – `TextField`; Ticket class – `RadioGroup` (Economy / Business); Rate per kg (RM) – `TextField` |
 | **Outputs** | Excess baggage weight, excess baggage charge, service tax (8%) and total amount payable – formatted as `15.00 kg` / `RM 194.40` with the working shown |
-| **Customization** | Custom Material 3 theme (navy + amber), custom AppBar / status bar style, custom launcher icon (`flutter_launcher_icons`) |
+| **Customization** | Custom Material 3 theme (navy accent, cool-grey neutrals) in **both light and dark mode** with a title-bar theme switch, custom AppBar / status bar style, custom launcher icon (`flutter_launcher_icons`) |
 | **Navigation** | Drawer menu with **Home** and **About** |
 | **About page** | App icon, author information (name, matric no, course), copyright notice, clickable GitHub URL (`url_launcher`) |
-| **Good design practice** | Inline + SnackBar error messages, helpful notices (free allowance per class, "within allowance" notice), "How to use" instructions card, Reset button |
+| **Good design practice** | Inline + SnackBar error messages, helpful notices (free allowance per class, "within allowance" notice), "How to use" instructions card, Reset button, composed empty state before the first calculation, pinned bottom action bar, common-rate shortcut chips, selectable result text, haptic feedback |
+
+## Design system
+
+The whole UI follows one stated set of rules (see the comment block at the top
+of `lib/main.dart`), which is what keeps the screens looking like one app:
+
+| Rule | Value |
+|---|---|
+| **One accent** | Navy `#0D3B66` (lightened to `#9CC4EE` in dark mode). Red = error, green = success — semantics, not decoration |
+| **One grey family** | Cool / slate greys only |
+| **Shape lock** | Cards 20 · nested blocks + inputs 14 · chips 10 · buttons are pills |
+| **One icon family** | Material Symbols *rounded* |
+| **Elevation** | Flat surfaces with 1px hairline borders; only the bottom action bar is raised |
+| **Spacing** | Multiples of 4 |
+| **Numbers** | Tabular figures everywhere, so digits never shift |
+| **Motion** | One purposeful animation — the result reveal (fade + 10px rise, 260 ms, strong ease-out) — switched off when the OS asks for reduced motion |
+| **Both themes** | Light and dark are designed together, switchable from the title bar |
 
 ## Formula
 
