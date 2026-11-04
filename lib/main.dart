@@ -88,7 +88,7 @@ class AppInfo {
   static const String course = 'ICT602 - Mobile Technology';
   static const String lecturer = 'Madam Idayati Binti Mazlan';
   static const String githubUrl =
-      'https://github.com/tepungPelita1/BaggageCalculator';
+      'https://github.com/tepungPelita1/MobileAssignment';
 }
 
 // =====================================================================
