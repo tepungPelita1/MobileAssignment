@@ -10,28 +10,36 @@ A Flutter mobile application that estimates the **excess baggage fee** for air t
 | Requirement | Implementation |
 |---|---|
 | **Inputs** | Baggage weight (kg) – `TextField`; Ticket class – `RadioGroup` (Economy / Business); Rate per kg (RM) – `TextField` |
-| **Outputs** | Excess baggage weight, excess baggage charge, service tax (8%) and total amount payable – formatted as `15.00 kg` / `RM 194.40` with the working shown |
-| **Customization** | Custom Material 3 theme (navy accent, cool-grey neutrals) in **both light and dark mode** with a title-bar theme switch, custom AppBar / status bar style, custom launcher icon (`flutter_launcher_icons`) |
+| **Outputs** | Excess baggage weight, excess baggage charge, service tax (8%) and total amount payable – formatted as `15.00 kg` / `RM 194.40` with the working shown under each line |
+| **Customization** | Custom Material 3 theme (navy accent, cool-grey neutrals) in both light and dark mode with a title-bar theme switch, custom AppBar / status bar style, custom launcher icon (`flutter_launcher_icons`) |
 | **Navigation** | Drawer menu with **Home** and **About** |
-| **About page** | App icon, author information (name, matric no, course), copyright notice, clickable GitHub URL (`url_launcher`) |
-| **Good design practice** | Inline + SnackBar error messages, helpful notices (free allowance per class, "within allowance" notice), "How to use" instructions card, Reset button, composed empty state before the first calculation, pinned bottom action bar, common-rate shortcut chips, selectable result text, haptic feedback |
+| **About page** | App icon, author information (name, matric no, course, lecturer), copyright notice, clickable GitHub URL (`url_launcher`) |
+| **Good design practice** | Inline + SnackBar error messages, free-allowance label on each ticket class, "within allowance" notice, "How to use" instructions card, Reset button, pinned bottom action bar |
 
-## Design system
+## Where the code comes from
 
-The whole UI follows one stated set of rules (see the comment block at the top
-of `lib/main.dart`), which is what keeps the screens looking like one app:
+All the code is in one file, `lib/main.dart`, split into parts `[1]`–`[15]`.
+Each part is matched to the lab it was learned from:
 
-| Rule | Value |
-|---|---|
-| **One accent** | Navy `#0D3B66` (lightened to `#9CC4EE` in dark mode). Red = error, green = success — semantics, not decoration |
-| **One grey family** | Cool / slate greys only |
-| **Shape lock** | Cards 20 · nested blocks + inputs 14 · chips 10 · buttons are pills |
-| **One icon family** | Material Symbols *rounded* |
-| **Elevation** | Flat surfaces with 1px hairline borders; only the bottom action bar is raised |
-| **Spacing** | Multiples of 4 |
-| **Numbers** | Tabular figures everywhere, so digits never shift |
-| **Motion** | One purposeful animation — the result reveal (fade + 10px rise, 260 ms, strong ease-out) — switched off when the OS asks for reduced motion |
-| **Both themes** | Light and dark are designed together, switchable from the title bar |
+| Part | What it is | Lab |
+|---|---|---|
+| `[1]` | `AppColors` – every colour in the app | Lab 5 (5.2.2) |
+| `[2]` | `AppInfo` – author details and GitHub URL | – |
+| `[3]` | `buildAppTheme()` + `MyApp` – theme and status bar | Lab 5 (5.2, 5.3) |
+| `[4]` | `buildMenu()` – Drawer | Outside the labs (asked by the question) |
+| `[5]` | Variables, `TextEditingController`, `dispose()` | Lab 4 (4.3.1) |
+| `[6]` | Input checks – `tryParse` + `if` + `return` | Lab 4 (4.4), Lab 5 |
+| `[7]` | The formula | Assignment question |
+| `[8]` | `showMessage()` (SnackBar) and `reset()` | Lab 3 (3.1.2), Lab 4 |
+| `[9]`–`[10]` | Header banner, "How to use" card | Basic layout |
+| `[11]` | 2 × `TextField` + `RadioGroup` | Lab 4 (4.2, 4.3.1) |
+| `[12]` | `OutlinedButton` + `FilledButton` | Lab 3 (3.1.3) |
+| `[13]` | Result card – the 4 outputs | Assignment question |
+| `[14]` | `AboutPage` | Assignment question |
+| `[15]` | `openGitHub()` with `url_launcher` | Outside the labs (asked by the question) |
+
+Only `[4]` and `[15]` come from outside Lab 1–5, and both are required by the
+assignment question. Everything else maps to a lab.
 
 ## Formula
 
@@ -43,7 +51,8 @@ of `lib/main.dart`), which is what keeps the screens looking like one app:
 ```
 Excess weight   = weight - X          (0 if weight <= X, never negative)
 Excess charge   = excess weight * rate per kg
-Total payable   = excess charge + (8% * excess charge)
+Service tax     = 8% * excess charge
+Total payable   = excess charge + service tax
 ```
 
 ### Sample results (verified by unit tests)
