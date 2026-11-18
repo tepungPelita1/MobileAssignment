@@ -334,7 +334,7 @@ class _HomePageState extends State<HomePage> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: colors.primary,
+        color: colors.secondary,
         borderRadius: BorderRadius.circular(AppShape.card),
       ),
       child: Row(
@@ -349,7 +349,7 @@ class _HomePageState extends State<HomePage> {
             ),
             child: Icon(
               Icons.flight_takeoff_rounded,
-              color: AppColors.colorSecondaryLight,
+              color: const Color.fromARGB(255, 255, 255, 255),
               size: 26,
             ),
           ),
