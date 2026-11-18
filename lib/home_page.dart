@@ -334,17 +334,18 @@ class _HomePageState extends State<HomePage> {
     return Container(
       padding: const EdgeInsets.all(20),
       decoration: BoxDecoration(
-        color: colors.secondary,
+        color: AppColors.colorSecondarySoft, // light teal fill
         borderRadius: BorderRadius.circular(AppShape.card),
+        border: Border.all(color: AppColors.colorSecondaryBorder),
       ),
       child: Row(
         children: [
           Container(
-            width: 48,
-            height: 48,
+            width: 52,
+            height: 52,
             alignment: Alignment.center,
             decoration: BoxDecoration(
-              color: AppColors.colorPrimaryCircle,
+              color: colors.secondary, // same teal as the Calculate button
               shape: BoxShape.circle,
             ),
             child: Icon(
@@ -361,7 +362,7 @@ class _HomePageState extends State<HomePage> {
                 Text(
                   'Overweight luggage?',
                   style: fonts.titleMedium?.copyWith(
-                    color: colors.onPrimary,
+                    color: colors.primary,
                     fontWeight: FontWeight.w700,
                   ),
                 ),
@@ -370,7 +371,7 @@ class _HomePageState extends State<HomePage> {
                   'Estimate your excess baggage fee before you reach the '
                   'check-in counter.',
                   style: fonts.bodyMedium?.copyWith(
-                    color: AppColors.colorOnPrimarySoft,
+                    color: colors.onSurfaceVariant,
                     height: 1.35,
                   ),
                 ),
@@ -433,7 +434,7 @@ class _HomePageState extends State<HomePage> {
                 Icon(
                   Icons.lightbulb_rounded,
                   size: 20,
-                  color: colors.onSurfaceVariant,
+                  color: AppColors.colorAmber,
                 ),
                 const SizedBox(width: 8),
                 Text(
@@ -673,9 +674,10 @@ class _HomePageState extends State<HomePage> {
   Widget buildResultCard(ColorScheme colors, TextTheme fonts) {
     final bool noExcess = excessWeight == 0;
     // Green when there is nothing to pay, orange when there is.
-    final Color noticeColor = noExcess ? colors.tertiary : colors.primary;
+    final Color noticeColor =
+        noExcess ? colors.tertiary : AppColors.colorWarning;
     final Color noticeBackground =
-        noExcess ? AppColors.colorSuccessSoft : const Color.fromARGB(255, 238, 163, 98);
+        noExcess ? AppColors.colorSuccessSoft : AppColors.colorWarningSoft;
 
     return buildCard(
       context,
@@ -816,7 +818,6 @@ class _HomePageState extends State<HomePage> {
                       noExcess
                           ? 'Good news! Your baggage is within the '
                               '$selectedClass allowance of $allowance kg. '
-                              'Nothing to pay.'
                           : 'Your baggage is ${trim(excessWeight)} kg over the '
                               '$selectedClass allowance of $allowance kg.',
                       style: fonts.bodyMedium?.copyWith(height: 1.35),

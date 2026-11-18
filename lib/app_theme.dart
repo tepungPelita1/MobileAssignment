@@ -28,6 +28,9 @@ class AppColors {
   static const Color colorOnSecondary = Color(0xFFFFFFFF); // white on teal
   static const Color colorOnSecondarySoft = Color(0xFFD2ECEB); // faded text
   static const Color colorSecondaryLight = Color(0xFF7FD6D2); // icon on banner
+  static const Color colorSecondarySoft = Color(0xFFE3F2EF); // light teal banner fill
+  static const Color colorSecondaryBorder = Color(0xFFB7DDD7); // banner border
+  static const Color colorAmber = Color(0xFFE39B1B); // lightbulb icon (How to use)
 
   // --- Screen, cards and text ---
   static const Color colorBackground = Color.fromARGB(255, 242, 241, 238); // warm light grey
@@ -41,6 +44,8 @@ class AppColors {
   // Used for small boxes and circles behind icons.
   static const Color colorPrimarySoft = Color(0xFFE3E9EC);
   static const Color colorSuccessSoft = Color(0xFFE5F1EB);
+  static const Color colorWarning = Color(0xFFD97A1E); // orange icon "over the allowance"
+  static const Color colorWarningSoft = Color.fromARGB(255, 248, 232, 216); // light orange box
 
   // --- Colours used on top of the graphite banner ---
   static const Color colorOnPrimarySoft = Color.fromARGB(255, 255, 255, 255); // faded text
@@ -82,7 +87,7 @@ ThemeData buildAppTheme() {
     colorScheme: ColorScheme.fromSeed(
       seedColor: AppColors.colorPrimary,
     ).copyWith(
-      primary: AppColors.colorPrimary,
+      primary: const Color.fromARGB(255, 3, 3, 3),
       onPrimary: AppColors.colorOnPrimary,
       secondary: AppColors.colorSecondary,
       onSecondary: AppColors.colorOnSecondary,
