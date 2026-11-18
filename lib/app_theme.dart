@@ -20,7 +20,7 @@ class AppColors {
   // accent, on top of a light grey screen.
 
   // --- Main colours (Lab 5: colorPrimary + colorOnPrimary) ---
-  static const Color colorPrimary = Color(0xFF1E3442); // graphite panel
+  static const Color colorPrimary = Color(0xFF012E5E); // navy, same as the app icon
   static const Color colorOnPrimary = Color(0xFFFFFFFF); // white on graphite
 
   // --- Accent colour (Lab 5 exercise 2: secondary + onSecondary) ---
@@ -43,8 +43,8 @@ class AppColors {
   static const Color colorSuccessSoft = Color(0xFFE5F1EB);
 
   // --- Colours used on top of the graphite banner ---
-  static const Color colorOnPrimarySoft = Color(0xFFB9C7CF); // faded text
-  static const Color colorPrimaryCircle = Color(0xFF34505F); // icon circle
+  static const Color colorOnPrimarySoft = Color.fromARGB(255, 255, 255, 255); // faded text
+  static const Color colorPrimaryCircle = Color(0xFF012E5E); // icon circle (lighter navy)
 }
 
 // Corner radius, so every box in the app has the same shape.
