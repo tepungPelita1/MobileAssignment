@@ -16,31 +16,6 @@ A Flutter mobile application that estimates the **excess baggage fee** for air t
 | **About page** | App icon, author information (name, matric no, course, lecturer), copyright notice, clickable GitHub URL (`url_launcher`) |
 | **Good design practice** | Inline + SnackBar error messages, free-allowance label on each ticket class, "within allowance" / "over the limit" notice, "How to use" instructions card, Reset button, pinned bottom action bar |
 
-## Where the code comes from
-
-The code is split into 4 files in `lib/`, and marked with parts `[1]`–`[15]`.
-Each part is matched to the lab Madam
-
-| Part | File | What it is | Lab |
-|---|---|---|---|
-| `[1]` | `app_theme.dart` | `AppColors` – every colour in the app | Lab 5 (5.2.2, exercise 2) |
-| `[2]` | `app_theme.dart` | `AppInfo` – author details and GitHub URL | – |
-| `[3]` | `app_theme.dart`, `main.dart` | `buildAppTheme()`, `buildAppBar()`, `MyApp` – theme and status bar | Lab 2, Lab 5 (5.2, 5.3) |
-| `[4]` | `app_theme.dart` | `buildMenu()` – Drawer | Outside the labs (asked by the question) |
-| `[5]` | `home_page.dart` | Variables, `TextEditingController`, `dispose()` | Lab 4 (4.3.1) |
-| `[6]` | `home_page.dart` | Input checks – `tryParse` + `if` + `return` | Lab 4 (4.4), Lab 5 |
-| `[7]` | `home_page.dart` | The formula | Assignment question |
-| `[8]` | `home_page.dart` | `showMessage()` (SnackBar) and `reset()` | Lab 3 (3.1.2), Lab 4 |
-| `[9]`–`[10]` | `home_page.dart` | Header banner, "How to use" card | Basic layout |
-| `[11]` | `home_page.dart` | 2 × `TextField` + `RadioGroup` | Lab 4 (4.2, 4.3.1) |
-| `[12]` | `home_page.dart` | `OutlinedButton` + `FilledButton` | Lab 3 (3.1.3) |
-| `[13]` | `home_page.dart` | Result card – the 4 outputs + notice | Assignment question |
-| `[14]` | `about_page.dart` | `AboutPage` | Assignment question |
-| `[15]` | `about_page.dart` | `openGitHub()` with `url_launcher` | Outside the labs (asked by the question) |
-
-`[4]` and `[15]` come from outside Lab 1–5, and both are required by the
-assignment question.
-
 ## Formula
 
 | Ticket class | Free allowance (X) |
